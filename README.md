@@ -1,25 +1,14 @@
-# Gusher backend
+# Gusher chat backend
 
-Contains protocols service, will hopefully evolve to replace legacy backend api
+Go service that runs Gusher chat protocols and is meant to replace an older API.
 
-## Running application
+## What is in here
 
-* Build with `go build -o gusher-backend` inside `/cmd/protocol` directory
-* run with `./gusher-backend your.config.yml`
-* swagger docs are available on following url: `/swagger/index.html`
+- Protocol service under `cmd/`
+- User, access, chat, and shared packages
+- SQL migrations
+- Dockerfile and Jenkinsfile
 
-## Updating swagger docs
+## Stack
 
-At this moment swagger doc tags are not processed automatically during deployment, in order to update them follow these steps
-* Install swaggo from https://github.com/swaggo/swag
-* go to `/cmd/backend` and run `swag init --pd`
-
-## Generating gorm models with gentool
-
-````
-gentool -dsn "root:root@tcp(localhost:3306)/gusher" -tables "protocol_task_startup" -fieldNullable -onlyModel -outPath "./protocol/protocol"  -modelPkgName "progress"
-````
-
-## Configuration
-
-
+Go, Docker, Jenkins
